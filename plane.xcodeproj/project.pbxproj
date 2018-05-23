@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0ED36920B2F41900585E4B /* FlyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ED36820B2F41900585E4B /* FlyObject.swift */; };
 		CE77FBB420B272F000B1C70B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77FBB320B272F000B1C70B /* AppDelegate.swift */; };
 		CE77FBBA20B272F000B1C70B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77FBB920B272F000B1C70B /* GameScene.swift */; };
 		CE77FBBC20B272F000B1C70B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77FBBB20B272F000B1C70B /* GameViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE0ED36820B2F41900585E4B /* FlyObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyObject.swift; sourceTree = "<group>"; };
 		CE77FBB020B272F000B1C70B /* plane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE77FBB320B272F000B1C70B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE77FBB920B272F000B1C70B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				CE77FBD120B2732400B1C70B /* resources */,
 				CE77FBB320B272F000B1C70B /* AppDelegate.swift */,
 				CE77FBB920B272F000B1C70B /* GameScene.swift */,
+				CE0ED36820B2F41900585E4B /* FlyObject.swift */,
 				CE77FBBB20B272F000B1C70B /* GameViewController.swift */,
 				CE77FBBD20B272F000B1C70B /* Main.storyboard */,
 				CE77FBC220B272F100B1C70B /* LaunchScreen.storyboard */,
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0ED36920B2F41900585E4B /* FlyObject.swift in Sources */,
 				CE77FBBA20B272F000B1C70B /* GameScene.swift in Sources */,
 				CE77FBBC20B272F000B1C70B /* GameViewController.swift in Sources */,
 				CE77FBB420B272F000B1C70B /* AppDelegate.swift in Sources */,
