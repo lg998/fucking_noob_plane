@@ -17,12 +17,31 @@ class GameScene: SKScene {
     private var enemys = [Enemy]()
     private var bonuses = [Bonus]()
     private var enemyBullets = [Bullet]()
+    private var soundController = SoundController()
+    private var nowScore = 0
+    
+    private var scoreLabel : SKLabelNode?
 
+    
     override func didMove(to view: SKView) {
+        soundController.playBackGroundMusic()
+        setupUI()
         setupBackground()
         setupPlayer()
         startSetupEnemys()
         startSetupBonus()
+        
+    }
+
+    func setupUI(){
+        scoreLabel =  SKLabelNode.init(fontNamed: "Marker Felt")
+        scoreLabel?.position = .init(x:50, y:size.height-20)
+        scoreLabel?.zPosition = 2
+        scoreLabel?.text = "Score: 0"
+        scoreLabel?.fontColor = .black
+        scoreLabel?.fontSize = 20
+        addChild(scoreLabel!)
+
     }
     
     func setupBackground(){
@@ -105,6 +124,7 @@ class GameScene: SKScene {
                                     SKTexture(imageNamed: "enemy0_down2"),
                                     SKTexture(imageNamed: "enemy0_down3"),
                                     SKTexture(imageNamed: "enemy0_down4")]
+                enemy.type="normal"
                 enemy.deadTextures = deadTextures
                 enemy.position = CGPoint(x:CGFloat(drand48())*(size.width-enemy.size.width)+enemy.size.width/2, y:size.height)
                 enemy.zPosition = 1.1
@@ -126,18 +146,23 @@ class GameScene: SKScene {
                                     SKTexture(imageNamed: "enemy1_down3"),
                                     SKTexture(imageNamed: "enemy1_down4")]
                 enemy.deadTextures = deadTextures
+                enemy.type="medium"
                 enemy.position = CGPoint(x:CGFloat(drand48())*(size.width-enemy.size.width)+enemy.size.width/2, y:size.height)
                 enemy.zPosition = 1.05
                 enemy.hp = 300
+                enemy.score = 300
                 addChild(enemy)
                 enemys.append(enemy)
-                let moveAction = SKAction.moveTo(y: -10, duration: 10)
+                let moveAction = SKAction.moveTo(y: -10, duration: 15)
                 let shootAction = SKAction.run{
                     self.startEnemyShoot(enemy: enemy, damage: 30, imageNamed: "bullet2")
                 }
-                
-                let sequenceAction = SKAction.sequence([moveAction, shootAction])
+                let deleteAction = SKAction.run{
+                    self.removeEnemy(enemy: enemy)
+                }
+                let sequenceAction = SKAction.sequence([moveAction, deleteAction])
                 enemy.run(sequenceAction)
+                enemy.run(shootAction)
                 return
             default: return
         }
@@ -148,8 +173,9 @@ class GameScene: SKScene {
         let shootAction = SKAction.run {
             self.enemyShoot(enemy: enemy, damage: damage, imageNamed: imageNamed)
         }
+        let shootGroupAction = SKAction.group([shootAction,soundController.shootSoundAction])
         let wait = SKAction.wait(forDuration: 0.2)
-        let sequenceAction = SKAction.sequence([shootAction,wait])
+        let sequenceAction = SKAction.sequence([shootGroupAction,wait])
         let onceShootAction = SKAction.sequence([SKAction.repeat(sequenceAction, count:5), SKAction.wait(forDuration: 1.5)])
         let repeatShootAction = SKAction.repeatForever(onceShootAction)
         enemy.run(repeatShootAction)
@@ -163,7 +189,11 @@ class GameScene: SKScene {
         bullet.position = CGPoint(x: enemy.position.x, y: enemy.position.y)
         addChild(bullet)
         enemyBullets.append(bullet)
-        let moveAction = SKAction.move(to: CGPoint(x: hero.position.x, y: hero.position.y),duration: TimeInterval(sqrt((pow(bullet.position.x-hero.position.x, 2)+pow(bullet.position.y-hero.position.y, 2)))/200))
+        let rate = (hero.position.y-bullet.position.y)/(hero.position.x-bullet.position.x)
+        let direction = (hero.position.x-bullet.position.x)/abs(hero.position.x-bullet.position.x)
+        let x_move = direction*size.width
+        let y_move = x_move*rate
+        let moveAction = SKAction.move(to: CGPoint(x: x_move, y: y_move),duration: TimeInterval(sqrt((pow(x_move-hero.position.x, 2)+pow(y_move-hero.position.y, 2)))/180))
         let deleteAction = SKAction.run{
             self.removeEnemyBullet(enemyBullet: bullet)
         }
@@ -191,8 +221,10 @@ class GameScene: SKScene {
         let shootAction = SKAction.run {
             self.Shoot(count: self.hero.shootCount)
         }
+//        let soundAction = SKAction.playSoundFileNamed("bullet", waitForCompletion: false)
+        let shootGroupAction = SKAction.group([shootAction,soundController.shootSoundAction])
         let wait = SKAction.wait(forDuration: 0.2)
-        let sequenceAction = SKAction.sequence([shootAction,wait])
+        let sequenceAction = SKAction.sequence([shootGroupAction,wait])
         let repeatShootAction = SKAction.repeatForever(sequenceAction)
         run(repeatShootAction, withKey:"repeatShootAction")
     }
@@ -254,7 +286,6 @@ class GameScene: SKScene {
     func touchUp(atPoint pos : CGPoint) {
     }
     
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.startShoot()
     }
@@ -296,6 +327,7 @@ class GameScene: SKScene {
             if enemy.frame.intersects(hero.frame){
                 if hero.getDamage(damage: enemy.damage)==false{
                     print ("game over")
+                    gameOver()
                 }
                 if enemy.getDamage(damage: hero.damage)==false{
                     blowupEnemy(enemy: enemy)
@@ -307,6 +339,7 @@ class GameScene: SKScene {
             if enemyBullet.frame.intersects(hero.frame){
                 if hero.getDamage(damage: enemyBullet.damage)==false{
                     print ("game over")
+                    gameOver()
                 }
                 removeEnemyBullet(enemyBullet: enemyBullet)
             }
@@ -314,7 +347,17 @@ class GameScene: SKScene {
         
     }
     
+    func gameOver(){
+        self.removeAllChildren()
+        self.removeAllActions()
+        run(soundController.gameOverAction)
+        let sence = LoseScene.init(size: size)
+        let t = SKTransition.moveIn(with: .up, duration: 0.3);
+        view?.presentScene(sence, transition: t)
+    }
+    
     func getBonus(type: bonusType){
+        run(soundController.bonusSoundAction)
         switch type{
             case .doubleShoot:
                 hero.shootCount += 1
@@ -322,16 +365,35 @@ class GameScene: SKScene {
         }
     }
     
+//    func closeSound(){
+//        let action = SKAction.changeVolume(by: -1, duration: 0)
+//        soundController.bgMusicPlayer.volume=0
+//        run(action)
+//    }
+//
+//    func resumeSound(){
+//        let action = SKAction.changeVolume(by: 1, duration: 0)
+//        soundController.bgMusicPlayer.volume=0.5
+//        run(action)
+//    }
+    
     func blowupEnemy(enemy: Enemy){
+        nowScore+=enemy.score
+        scoreLabel?.text = "Score: "+String(nowScore)
         let index = self.enemys.index(of: enemy)
         if index != nil {
             self.enemys.remove(at: index!)
         }
         let blowupAction = SKAction.animate(with: enemy.deadTextures, timePerFrame: 0.1, resize: false, restore: false)
+        var soundAction = soundController.blowupNormalAction
+        if enemy.type=="medium" {
+            soundAction = soundController.blowupMediumAction
+        }
+        let blowupGroupAction = SKAction.group([blowupAction,soundAction])
         let deleteAction = SKAction.run{
             enemy.removeFromParent()
         }
-        let sequenceAction = SKAction.sequence([blowupAction, deleteAction])
+        let sequenceAction = SKAction.sequence([blowupGroupAction, deleteAction])
         enemy.removeAllActions()
         enemy.run(sequenceAction)
     }

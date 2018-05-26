@@ -16,7 +16,22 @@
 		CE77FC2220B2A65400B1C70B /* sound in Resources */ = {isa = PBXBuildFile; fileRef = CE77FC1F20B2A65400B1C70B /* sound */; };
 		CE77FC2320B2A65400B1C70B /* font in Resources */ = {isa = PBXBuildFile; fileRef = CE77FC2020B2A65400B1C70B /* font */; };
 		CE77FC2420B2A65400B1C70B /* image in Resources */ = {isa = PBXBuildFile; fileRef = CE77FC2120B2A65400B1C70B /* image */; };
-		CE77FC2620B2AC3700B1C70B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE77FC2520B2AC3700B1C70B /* Assets.xcassets */; };
+		CEA69C6C20B9400E0048C144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C6B20B9400D0048C144 /* Assets.xcassets */; };
+		CEA69C7B20B9411B0048C144 /* out_porp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C6E20B9411A0048C144 /* out_porp.mp3 */; };
+		CEA69C7C20B9411B0048C144 /* enemy0_down.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C6F20B9411A0048C144 /* enemy0_down.mp3 */; };
+		CEA69C7D20B9411B0048C144 /* enemy2_down.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C7020B9411A0048C144 /* enemy2_down.mp3 */; };
+		CEA69C7F20B9411B0048C144 /* button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C7220B9411A0048C144 /* button.mp3 */; };
+		CEA69C8020B9411B0048C144 /* achievement.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C7320B9411A0048C144 /* achievement.mp3 */; };
+		CEA69C8120B9411B0048C144 /* big_spaceship_flying.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C7420B9411A0048C144 /* big_spaceship_flying.mp3 */; };
+		CEA69C8220B9411B0048C144 /* use_bomb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C7520B9411A0048C144 /* use_bomb.mp3 */; };
+		CEA69C8320B9411B0048C144 /* enemy1_down.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C7620B9411A0048C144 /* enemy1_down.mp3 */; };
+		CEA69C8420B9411B0048C144 /* bullet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C7720B9411A0048C144 /* bullet.mp3 */; };
+		CEA69C8520B9411B0048C144 /* get_bomb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C7820B9411A0048C144 /* get_bomb.mp3 */; };
+		CEA69C8620B9411B0048C144 /* get_double_laser.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C7920B9411B0048C144 /* get_double_laser.mp3 */; };
+		CEA69C8720B9411B0048C144 /* game_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEA69C7A20B9411B0048C144 /* game_music.mp3 */; };
+		CEA69C8920B949180048C144 /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA69C8820B949180048C144 /* SoundController.swift */; };
+		CEA69C8B20B94FB00048C144 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA69C8A20B94FB00048C144 /* ScoreController.swift */; };
+		CEA69CB320B95DAF0048C144 /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA69CB220B95DAF0048C144 /* LoseScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +46,24 @@
 		CE77FC1F20B2A65400B1C70B /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sound; sourceTree = "<group>"; };
 		CE77FC2020B2A65400B1C70B /* font */ = {isa = PBXFileReference; lastKnownFileType = folder; path = font; sourceTree = "<group>"; };
 		CE77FC2120B2A65400B1C70B /* image */ = {isa = PBXFileReference; lastKnownFileType = folder; path = image; sourceTree = "<group>"; };
-		CE77FC2520B2AC3700B1C70B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Library/Autosave Information/fucking_noob/fucking_noob/Assets.xcassets"; sourceTree = "<group>"; };
+		CEA69C6B20B9400D0048C144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEA69C6E20B9411A0048C144 /* out_porp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = out_porp.mp3; path = plane/resources/sound/out_porp.mp3; sourceTree = SOURCE_ROOT; };
+		CEA69C6F20B9411A0048C144 /* enemy0_down.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = enemy0_down.mp3; path = plane/resources/sound/enemy0_down.mp3; sourceTree = SOURCE_ROOT; };
+		CEA69C7020B9411A0048C144 /* enemy2_down.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = enemy2_down.mp3; path = plane/resources/sound/enemy2_down.mp3; sourceTree = SOURCE_ROOT; };
+		CEA69C7220B9411A0048C144 /* button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = button.mp3; path = plane/resources/sound/button.mp3; sourceTree = SOURCE_ROOT; };
+		CEA69C7320B9411A0048C144 /* achievement.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = achievement.mp3; path = plane/resources/sound/achievement.mp3; sourceTree = SOURCE_ROOT; };
+		CEA69C7420B9411A0048C144 /* big_spaceship_flying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = big_spaceship_flying.mp3; path = plane/resources/sound/big_spaceship_flying.mp3; sourceTree = SOURCE_ROOT; };
+		CEA69C7520B9411A0048C144 /* use_bomb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = use_bomb.mp3; path = plane/resources/sound/use_bomb.mp3; sourceTree = SOURCE_ROOT; };
+		CEA69C7620B9411A0048C144 /* enemy1_down.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = enemy1_down.mp3; path = plane/resources/sound/enemy1_down.mp3; sourceTree = SOURCE_ROOT; };
+		CEA69C7720B9411A0048C144 /* bullet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bullet.mp3; path = plane/resources/sound/bullet.mp3; sourceTree = SOURCE_ROOT; };
+		CEA69C7820B9411A0048C144 /* get_bomb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = get_bomb.mp3; path = plane/resources/sound/get_bomb.mp3; sourceTree = SOURCE_ROOT; };
+		CEA69C7920B9411B0048C144 /* get_double_laser.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = get_double_laser.mp3; path = plane/resources/sound/get_double_laser.mp3; sourceTree = SOURCE_ROOT; };
+		CEA69C7A20B9411B0048C144 /* game_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = game_music.mp3; path = plane/resources/sound/game_music.mp3; sourceTree = SOURCE_ROOT; };
+		CEA69C8820B949180048C144 /* SoundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
+		CEA69C8A20B94FB00048C144 /* ScoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
+		CEA69CB020B956390048C144 /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
+		CEA69CB220B95DAF0048C144 /* LoseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
+		CEA69CB420B95E950048C144 /* game_over.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_over.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +96,7 @@
 		CE77FBB220B272F000B1C70B /* plane */ = {
 			isa = PBXGroup;
 			children = (
+				CEA69C6D20B940F70048C144 /* Sources */,
 				CE77FBD120B2732400B1C70B /* resources */,
 				CE77FBB320B272F000B1C70B /* AppDelegate.swift */,
 				CE77FBB920B272F000B1C70B /* GameScene.swift */,
@@ -72,7 +105,10 @@
 				CE77FBBD20B272F000B1C70B /* Main.storyboard */,
 				CE77FBC220B272F100B1C70B /* LaunchScreen.storyboard */,
 				CE77FBC520B272F100B1C70B /* Info.plist */,
-				CE77FC2520B2AC3700B1C70B /* Assets.xcassets */,
+				CEA69C6B20B9400D0048C144 /* Assets.xcassets */,
+				CEA69C8820B949180048C144 /* SoundController.swift */,
+				CEA69C8A20B94FB00048C144 /* ScoreController.swift */,
+				CEA69CB220B95DAF0048C144 /* LoseScene.swift */,
 			);
 			path = plane;
 			sourceTree = "<group>";
@@ -85,6 +121,27 @@
 				CE77FC1F20B2A65400B1C70B /* sound */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		CEA69C6D20B940F70048C144 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CEA69CB420B95E950048C144 /* game_over.mp3 */,
+				CEA69CB020B956390048C144 /* Marker Felt.ttf */,
+				CEA69C7320B9411A0048C144 /* achievement.mp3 */,
+				CEA69C7420B9411A0048C144 /* big_spaceship_flying.mp3 */,
+				CEA69C7720B9411A0048C144 /* bullet.mp3 */,
+				CEA69C7220B9411A0048C144 /* button.mp3 */,
+				CEA69C6F20B9411A0048C144 /* enemy0_down.mp3 */,
+				CEA69C7620B9411A0048C144 /* enemy1_down.mp3 */,
+				CEA69C7020B9411A0048C144 /* enemy2_down.mp3 */,
+				CEA69C7A20B9411B0048C144 /* game_music.mp3 */,
+				CEA69C7820B9411A0048C144 /* get_bomb.mp3 */,
+				CEA69C7920B9411B0048C144 /* get_double_laser.mp3 */,
+				CEA69C6E20B9411A0048C144 /* out_porp.mp3 */,
+				CEA69C7520B9411A0048C144 /* use_bomb.mp3 */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,11 +202,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA69C8420B9411B0048C144 /* bullet.mp3 in Resources */,
+				CEA69C8120B9411B0048C144 /* big_spaceship_flying.mp3 in Resources */,
 				CE77FC2420B2A65400B1C70B /* image in Resources */,
 				CE77FC2220B2A65400B1C70B /* sound in Resources */,
+				CEA69C8320B9411B0048C144 /* enemy1_down.mp3 in Resources */,
+				CEA69C8520B9411B0048C144 /* get_bomb.mp3 in Resources */,
+				CEA69C7F20B9411B0048C144 /* button.mp3 in Resources */,
+				CEA69C7D20B9411B0048C144 /* enemy2_down.mp3 in Resources */,
+				CEA69C7C20B9411B0048C144 /* enemy0_down.mp3 in Resources */,
+				CEA69C8720B9411B0048C144 /* game_music.mp3 in Resources */,
+				CEA69C8020B9411B0048C144 /* achievement.mp3 in Resources */,
+				CEA69C8220B9411B0048C144 /* use_bomb.mp3 in Resources */,
 				CE77FBBF20B272F000B1C70B /* Main.storyboard in Resources */,
+				CEA69C7B20B9411B0048C144 /* out_porp.mp3 in Resources */,
 				CE77FC2320B2A65400B1C70B /* font in Resources */,
-				CE77FC2620B2AC3700B1C70B /* Assets.xcassets in Resources */,
+				CEA69C6C20B9400E0048C144 /* Assets.xcassets in Resources */,
+				CEA69C8620B9411B0048C144 /* get_double_laser.mp3 in Resources */,
 				CE77FBC420B272F100B1C70B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,7 +231,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0ED36920B2F41900585E4B /* FlyObject.swift in Sources */,
+				CEA69C8920B949180048C144 /* SoundController.swift in Sources */,
+				CEA69C8B20B94FB00048C144 /* ScoreController.swift in Sources */,
 				CE77FBBA20B272F000B1C70B /* GameScene.swift in Sources */,
+				CEA69CB320B95DAF0048C144 /* LoseScene.swift in Sources */,
 				CE77FBBC20B272F000B1C70B /* GameViewController.swift in Sources */,
 				CE77FBB420B272F000B1C70B /* AppDelegate.swift in Sources */,
 			);

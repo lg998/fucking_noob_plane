@@ -66,6 +66,8 @@ class Hero: Flyobject{
 
 class Enemy: Flyobject{
     var damage = 10
+    var type = "normal"
+    var score = 100
     public func getDamage(damage: Int)->Bool{
         hp-=damage
         if isAlive()==false{
